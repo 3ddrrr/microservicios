@@ -53,3 +53,53 @@ Instalación
     Configurar las bases de datos en MySQL
     Ejecutar cada microservicio por separado
     Probar los endpoints con Postman
+
+Microservicios Implementados
+
+1. productservice
+Paquete base: com.perfulandia.productservice
+Endpoints para CRUD de productos.
+Base de datos: tabla producto
+Swagger disponible en: /swagger-ui/index.html
+ Pruebas unitarias con Mockito (ProductServiceTest)
+
+
+2. usuarioservice
+Paquete base: com.perfulandia.usuarioservice
+Endpoints para gestionar usuarios con roles (ADMIN, GERENTE, Usuario).
+Base de datos: tabla usuario
+ Pruebas unitarias con Mockito (UsuarioServiceTest)
+
+ Swagger activo.
+
+3. carritoservice
+
+Paquete base: com.perfulandia.carritoservice
+Maneja carritos de compras asociados a usuarios.
+Carrito contiene lista de ItemCarrito con producto, cantidad y precio.
+Comunicación interna con productservice simulada vía RestTemplate.
+Pruebas unitarias con Mockito (CarritoServiceTest)
+Swagger UI habilitado.
+
+🧪 Pruebas Unitarias (Mockito)
+
+ProductoServiceTest
+Método probado: guardarProducto, listarProductos, buscarPorId
+Mocks: ProductoRepository
+Datos de prueba: objetos Producto con id, nombre, precio, stock.
+Resultado: todos los tests pasan (✅)
+
+UsuarioServiceTest
+Método probado: guardar, listar, buscar, eliminar
+Mocks: UsuarioRepository
+Datos: objetos Usuario con nombre, correo, rol.
+Resultado: todos los tests pasan (✅)
+
+CarritoServiceTest
+Método probado: crearCarrito, obtenerCarritoPorUsuario, agregarProducto, eliminarCarrito
+Mocks: CarritoRepository
+Simulación parcial de RestTemplate para validación externa
+Resultado: todos los tests pasan (✅) excepto agregarProducto() que se depura manualmente por inicialización de lista.
+
+🔍 Swagger
+Todos los servicios tienen Swagger habilitado vía dependencia:
