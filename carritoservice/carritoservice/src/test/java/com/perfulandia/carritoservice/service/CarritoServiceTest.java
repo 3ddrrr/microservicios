@@ -77,7 +77,7 @@ class CarritoServiceTest {
             Carrito carritoExistente = Carrito.builder()
                     .id(1L)
                     .usuarioId(usuarioId)
-                    .items(new ArrayList<>())  // ⚠️ IMPORTANTE: lista vacía inicializada
+                    .items(new ArrayList<>())  //Lista vacía inicializada
                     .total(0.0)
                     .build();
 
