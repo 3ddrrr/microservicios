@@ -99,7 +99,7 @@ CarritoServiceTest
 Método probado: crearCarrito, obtenerCarritoPorUsuario, agregarProducto, eliminarCarrito
 Mocks: CarritoRepository
 Simulación parcial de RestTemplate para validación externa
-Resultado: todos los tests pasan (✅) excepto agregarProducto() que se depura manualmente por inicialización de lista.
+Resultado: todos los tests pasan (✅)
 
 🔍 Swagger
 Todos los servicios tienen Swagger habilitado vía dependencia:
